@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>皇家利華</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <script src="js/qrcode.min.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			border:0 none;
+		}
+		a{text-decoration:none;}
+		a:visited{text-decoration: none;}
+		a:hover {text-decoration: none;}
+		body{text-align:center;
+			/*background-image: linear-gradient(#735720, #4a3203);*/
+			background:url(images/bg.png) repeat-x;
+			background-size:1 100%;
+background-attachment:fixed;
+			}
+		.content{
+			background:url(images/content3.png); 
+			background-repeat:no-repeat;
+			width: 5.17rem;
+			height: 6.65rem;
+			background-size: 100% auto;
+			position: absolute;
+			font-size:14px;
+			top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+		}
+		#btn1 {
+			/*background: url(images/btn1.png);*/
+			width: 3.57rem;
+			height: 0.87rem;
+			background-size: 100% 100%;
+			position: absolute;
+			top: 1.9rem;
+			left: 0.78rem;
+		}
+		#btn2 {
+			/*background: url('images/btn1.png');*/
+			width: 3.57rem;
+			height: 0.87rem;
+			display: block;
+			background-size: 100% 100%;
+			position: absolute;
+			top: 3.1rem;
+			left: 0.78rem;
+		}
+		.imgcss {
+			width: 3.57rem;
+			height: 0.87rem;
+		}
+		.urlname {
+		    vertical-align:middle; 
+            line-height:0.85rem;
+			color:#d5b767;
+			font-size:0.2rem;
+			position: absolute;
+			/*left:0.4rem;*/
+			width: 2.3;
+			left:0;
+			right:0;
+			margin:auto;
+		}
+		.urlrate{
+			color:green;
+			font-size:0.15rem;
+			position: absolute;
+			right: 0.3rem;
+            line-height:0.85rem;
+			bottom:0;
+			vertical-align:middle;
+		}
+		.msg{
+			font-size:0.15rem;
+			color:green;
+			position: absolute;
+			left:0;
+			right:0;
+			top:4.05rem;
+			margin:auto;
+		}
+		
+	/*css心跳特效开始*/
+    	li{list-style:none;}
+    	a{text-decoration:none;}
+    	.heart{
+    		position:absolute;
+    		left: 0.9rem;
+    		width:0.4rem; 
+    		height:0.4rem;
+    		animation:scale 1s linear infinite; 
+    		z-index: 10;
+    		/*名称 1s 匀速 无限循环*/
+    	}
+    	@keyframes scale{   /*必须和animation一起用  动画帧*/
+            50%{transform:scale(1)}
+            40%{transform:scale(2)}
+    		20%{transform:scale(1)}
+    		10%{transform:scale(2)}
+    	}
+    	.heart:after,
+    	.heart:before{
+    		position:absolute;
+    		width:60px;
+    		height:100%;
+    		background-color:red;
+    		content:"";
+    		border-radius:50% 50% 0 0;
+    	}
+    	.heart:before{
+    		left:0;
+    		transform:rotate(-52deg);
+    	}
+    	.heart:after{
+    		right:0;
+    		transform:rotate(49deg);
+    	}
+    	.xin{
+    	    position:absolute;
+    		top:5.35rem;
+    		left: 0.60rem;
+    	}
+    	.happy{
+    	    width: 2rem;
+    	    position:absolute;
+    	    top: 0.13rem;
+    	}
+    	.qrcodediv{
+    	    position:absolute;
+    		top:5.1rem;
+    		left: 2.9rem;
+    		font-size:0.12rem;
+			color:green;
+    	}
+    	.qrcode {
+    	    border:3px solid green;
+			width:1.6rem;
+			height:1.6rem;
+    	}
+    	.qrcode canvas + img {
+    	    width:100% !important;
+            height:100% !important;
+    	}
+    	/*#weixin-tip{  
+            display: fixed;   
+            position: fixed;   
+            left:0; top:0; bottom:0;   
+            background: rgba(0,0,0,0.8);   
+            filter:alpha(opacity=80);    
+            height: 100%; width: 100%; z-index: 100;}  
+        #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;
+        }*/
+	</style>
+</head>
+
+<body>
+	<div id="content" class="content">
+		<div id="btn1" class="btn">
+			<a href="#">
+				<div name="urlname" id="urlname1" class="urlname">手机APP下载1</div>
+				<img id="imgcss1" class="imgcss" src="images/btn1.png">
+				<span class="urlrate" xl-name="btn1"></span>
+			</a>
+		</div>
+		<div id="btn2" class="btn">
+			<a href="#">
+				<div name="urlname" id="urlname2" class="urlname">手机APP下载1</div>
+				<img id="imgcss1" class="imgcss" src="images/btn1.png">
+				<span class="urlrate" xl-name="btn2"></span>
+			</a>
+		</div>
+		
+		<div id="msg" class="msg">正在测试网络延迟，请稍后...</div>
+		
+		<div id="xin" class="xin">
+		    <img class="heart" src="images/xin.png">
+		    <img class="happy"  src="images/happy.png">
+		</div>
+		
+		<div id="qrcodediv" class="qrcodediv" onclick=javascript:alert(getpageurl)>
+        	<div id="qrcode" class="qrcode"></div>
+        </div>
+	</div>
+	
+	<script>
+		setHtml();
+		window.addEventListener('resize', function(){
+			setHtml();
+		});
+		function setHtml(){
+			var width = document.documentElement.clientWidth;
+			var height = document.documentElement.clientHeight;
+			var ratio = width / height
+			if (ratio>=0.689 && width>=517) {
+			    scalex=document.querySelector('html').style.fontSize = 100 + 100*(height-750)/750 + 'px'
+			    //alert ("a")
+			} else if (ratio>=0.689 && width<517){
+			    scalex=document.querySelector('html').style.fontSize = 100 + 100*(height-750)/750 + 'px'
+			    //alert ("b")
+			} else if (ratio<0.689 && width>517){
+			    scalex=document.querySelector('html').style.fontSize = 100 + 100*(width-517)/517 + 'px'
+			    //alert ("c")
+			} else if (ratio<0.689 && width<517){
+			    scalex=document.querySelector('html').style.fontSize = 100 + 100*(width-517)/517 + 'px'
+			    //alert ("d")
+			} 
+			//alert(window.location.href +"|"+ scalex.split("px")[0]);
+			//jQuery('#qrcode_2').qrcode({ width: 75, height: 75, text: window.location.href });
+				//if(window.innerHeight>=750){
+				//	document.querySelector('html').style.fontSize = 100 + 'px';
+				//}else{
+				//	document.querySelector('html').style.fontSize = 100 * (height / 750) + 'px';
+				//}
+			//alert (width +"|"+ height +"|"+ window.innerWidth +"|"+ window.innerHeight +"|"+ ratio)
+			//alert (document.getElementById("urlname1").scrollHeight + "|" + document.getElementById("imgcss1").offsetHeight);
+		}
+		
+		var jump=1,t={},autourl=new Array(),autoname=[],opurl,mintomax=0,s=10;
+		var getpageurl=window.location.href
+		cpturl1="https://www.hjlh666.com"; //这个是电脑版打开时的网址1
+		cpturl2="https://www.hjlh888.com"; //这个是电脑版打开时的网址2
+		cpturl3="https://www.hjlh777.com"; //这个是电脑版打开时的网址2
+		cptname1="电脑版地址1"; //这个电脑版显示名称1
+		cptname2="电脑版地址2"; //这个电脑版显示名称2
+		cptname3="电脑版地址3"; //这个电脑版显示名称2
+		
+		appurl1="https://chat123001.com:1888/zaNy.app"; //这个是安卓苹果合成下载点1
+		appurl2="https://tallban.com/dkpVW8"; //这个是安卓苹果合成下载点2
+		appurl3="https://zhumengzj.com/dkpVW8"; //这个是安卓苹果合成下载点2
+		appname1="手机APP下载1";
+		appname2="手机APP下载2";
+		appname3="手机APP下载3";
+
+		//document.write('<div id="msg">正在测试网络延迟，请稍后...</div>');
+		//document.write('电脑版地址：<a href="https://www.hjlh666.com">www.hjlh666.com</a><br>');
+		
+		//判断客户端类型打开相应URL
+		if (/(micromessenger)/i.test(navigator.userAgent)) {
+			if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+		        document.write('<div id="weixin-tip"><p><img src="images/weixinpoint-apple.png" alt="微信打开"/></p>');
+			} else if(/(Android)/i.test(navigator.userAgent)) {
+			    document.write('<div id="weixin-tip"><p><img src="images/weixinpoint-android.png" alt="微信打开"/></p>');
+			};
+            document.write('<div><a id="pageurl" href="'+getpageurl+'" style="font-size:0.2rem;color:green;font-weight:500;">…… '+getpageurl+' ……</a></div>');
+            document.getElementById("weixin-tip").appendChild(document.getElementById("qrcode"));
+		mkqrcode(1.6*scalex.split("px")[0]);
+            document.getElementById('qrcode').style.cssText = "margin:auto;"
+            document.write('<div><button onclick=\"copypageurl()\" value="'+getpageurl+'" style="height:0.5rem;width:1.8rem;background-color:#03534b;font-size:0.2rem;border-radius:0.8rem;color:white;border:2px solid #b9faf3;">复制本页地址</button></div></div>');
+            loadStyleText("#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;font-size:35px;} #weixin-tip p{text-align: center; margin-top: 0%; padding:0 5%;}#weixin-tip p img{max-width: 100%; height: auto;}");
+		    //alert (getpageurl);
+		} else {   
+			if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+				autourl[1]=appurl1; 
+				autourl[2]=appurl2;
+				autourl[3]=appurl3;
+				autoname[1]=appname1;
+				autoname[2]=appname2;
+				autoname[3]=appname3;
+				document.getElementById('urlname1').innerHTML = autoname[1];
+				document.getElementById('urlname2').innerHTML = autoname[2];
+				checkrun();
+				//opurl = document.getElementById("cpturl1").getElementsByTagName('a')[0].getAttribute('href');
+			} else {
+				autourl[1]=cpturl1; 
+				autourl[2]=cpturl2;
+				autourl[3]=cpturl3;
+				autoname[1]=cptname1;
+				autoname[2]=cptname2;
+				autoname[3]=cptname3;
+				document.getElementById('urlname1').innerHTML = autoname[1];
+				document.getElementById('urlname2').innerHTML = autoname[2];
+				checkrun();
+			};
+		};
+		//判断客户端类型打开相应URL结束
+		//document.write('<a href="'+autourl[1]+'">"'+autoname[1]+'"</a>    <span class="classtime" xl-name="'+autoname[1]+'"></span><br>');
+		//document.write('<a href="'+autourl[2]+'">"'+autoname[2]+'"</a>    <span class="classtime" xl-name="'+autoname[2]+'"></span><br>');
+		//document.write('<div>五秒后将自动跳转最优下载线路</br>如果没有自动跳转请手动点击低延时线路</div>');
+		
+		function checkrun(){
+			for(var i=1;i<autourl.length;i++){
+				var img = new Image;
+				//img.onerror= auto(autourl[i]);
+				img.onerror= (function(j){
+					return function(){
+						t[autourl[j]] =(new Date())- t[autourl[j]];  //记入时间差
+						console.log(autourl[j] + "    ：" + t[autourl[j]] + "ms"); //console.log(t[url] + "ms");
+						//console.log(i +"|"+j+"|"+jump+"|"+document.getElementById("content").getElementsByTagName("a").length)
+						if (mintomax++<=1) {
+    						document.querySelector('[xl-name=btn'+mintomax+']').innerHTML =  t[autourl[j]] + ' ms';
+    						document.getElementById('btn'+mintomax+'').getElementsByTagName('a')[0].setAttribute('href',autourl[j])
+						//console.log(jump);
+						if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+							//document.getElementById('urlname'+j+'').innerHTML = autoname[j];
+							//opurl = document.getElementById("cpturl1").getElementsByTagName('a')[0].getAttribute('href');
+						} else {
+							document.getElementById('urlname'+mintomax+'').innerHTML = autoname[mintomax] + "<br/>" + autourl[j].split("//")[1];
+							document.getElementById('urlname'+mintomax+'').style.cssText =  "width:2.5rem;text-align:center:center;line-height:0.18rem;top:0.25rem;font-size:0.15rem;";
+							document.getElementById('msg').style.cssText =  "font-size:0.13rem;";
+						};
+						};
+						//alert(autourl[j] + "|" +t[autourl[j]]+ "|" +jump);
+						if(jump) {
+							jump=0;	
+							var inter = setInterval(funs,1000)
+							function funs() {
+								s--;
+								document.getElementById("msg").innerText = s + '秒后自动打开【' + autoname[j] + '】';
+								if(s <= 0) {
+									window.location.replace(autourl[j]);
+									clearInterval(inter);
+								}
+							}
+						}
+					}
+				})(i);
+				//闭包传值
+				img.src = autourl[i] + Math.random();
+				t[autourl[i]] = (+new Date());//记录开始载入时间
+			}
+		};
+		mkqrcode(1.6*scalex.split("px")[0]);
+		function mkqrcode(w_and_h) {//生成本页二维码
+    		new QRCode(document.getElementById('qrcode'), {
+    		            text: getpageurl,
+    					width: w_and_h,
+    					height: w_and_h,
+    					colorDark : '#000000',
+    					colorLight : '#ffffff',
+    					correctLevel : QRCode.CorrectLevel.H
+    				}
+    				                );
+		}
+		
+	    function loadStyleText(cssText) {
+	        var style = document.createElement('style');
+	        style.rel = 'stylesheet';
+	        style.type = 'text/css';
+	        try {
+	            style.appendChild(document.createTextNode(cssText));
+	        } catch (e) {
+	            style.styleSheet.cssText = cssText; //ie9以下
+	        }
+            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style); 
+	    }
+	    
+	    function copypageurl() {
+            const input = document.createElement("input");
+            input.readOnly = 'readonly';
+            input.value = getpageurl;
+            document.body.appendChild(input);
+            input.select();
+            input.setSelectionRange(0, input.value.length);
+            document.execCommand('Copy');
+            document.body.removeChild(input);
+        	alert("复制成功，请在手机浏览器粘贴打开")
+        }
+        
+	</script>
+</body>
+
+</html>
