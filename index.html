@@ -254,7 +254,7 @@ background-attachment:fixed;
 			};
             document.write('<div><a id="pageurl" href="'+getpageurl+'" style="font-size:0.2rem;color:green;font-weight:500;">…… '+getpageurl+' ……</a></div>');
             document.getElementById("weixin-tip").appendChild(document.getElementById("qrcode"));
-		mkqrcode(1.6*scalex.split("px")[0]);
+	    //mkqrcode(1.6*scalex.split("px")[0]);
             document.getElementById('qrcode').style.cssText = "margin:auto;"
             document.write('<div><button onclick=\"copypageurl()\" value="'+getpageurl+'" style="height:0.5rem;width:1.8rem;background-color:#03534b;font-size:0.2rem;border-radius:0.8rem;color:white;border:2px solid #b9faf3;">复制本页地址</button></div></div>');
             loadStyleText("#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;font-size:35px;} #weixin-tip p{text-align: center; margin-top: 0%; padding:0 5%;}#weixin-tip p img{max-width: 100%; height: auto;}");
